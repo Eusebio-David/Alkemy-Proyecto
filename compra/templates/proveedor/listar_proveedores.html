@@ -1,0 +1,85 @@
+{% extends "index.html" %}
+
+<!-- funcion js para los archivos de alerta y mensaje -->
+{%block js%}
+  <script>
+        
+    function eliminarProducto(id) {
+
+          
+      Swal.fire({
+        title: '¿Estás seguro?',
+        text: 'Esta acción no se puede deshacer',
+        icon: 'question',
+        showCancelButton: true,
+        cancelButtonText: "No Cancelar",
+        confirmButtonText: "Si, Eliminar"
+      }).then(function(result){
+          if(result.isConfirmed){
+              var url = "/eliminar/producto/"+id;
+              window.location.href = url;
+            }
+          });
+        };
+    
+        
+            
+        
+    
+  </script>
+{%endblock%}
+
+
+<!-- Contenido para la página de inicio -->
+{% block  content %}
+
+<div class=" table-responsive container div-scroll col-10 mt-4 ">
+   
+      {% if provedores|length == 0 %}
+      <div class="container ">
+           
+        <h3 class="mensaje">{{ mensaje }}</h3>
+      </div>
+      {% endif%}
+      
+      <table class="table">
+        <thead>
+        <tr class="text-center">
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Teléfono</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            
+        </tr>
+        </thead>
+        {%for proveedor in proveedores%}
+        
+        <tbody>
+          <tr class="text-center">
+            <td>{{proveedor.id}}</td>
+            <td>{{proveedor.nombre}}</td>
+            <td>{{proveedor.apellido}}</td>
+            <td>{{proveedor.telefono}}</td>
+            <td scope="col"><a href="{%url 'compra:modificar_proveedor' proveedor.id %}"><i class="bi bi-pencil"></i></a></td>
+            <td scope="col"><a href="{%url 'compra:detalle_proveedor' proveedor.id %}"><i class="bi bi-eye"></i></a></td>
+            
+          </tr>
+          
+        </tbody>
+        {%endfor%}
+      </table>
+    
+
+  </div>
+  <div class="container">
+ 
+  
+    <div class=" fixed-bottom d-flex justify-content-end align-items-center p-5" style="height: 70vh;">
+      
+      <a class="icono-base" href="{%url 'compra:proveedor' %}"><i class="bi bi-database-fill-add" style="font-size: 4rem;"></i></a>
+      
+    </div>
+  </div>
+{% endblock%}

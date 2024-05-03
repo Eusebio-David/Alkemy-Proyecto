@@ -1,0 +1,27 @@
+{%extends 'index.html' %}
+
+{%block content%}
+    
+<div class="container col-6 mt-4 align-items-center">
+    <h1 class='text-center'>Formulario para actualizar producto</h1>
+    <form method="POST" >
+        {% csrf_token %}
+        <div class="container text-align-center">
+            {{form.errors}}
+            {{form.label_tag}}
+            {{form}}
+        </div>
+      
+        <!--<button class=' form-control btn btn-primary mt-4 justify-content-center' id='btn-actualizar'>Actualizar</button>-->
+        <!-- Agrega el botón y el toast en tu HTML -->
+        
+        <button class='form-control btn btn-primary mt-4 justify-content-center'>Actualizar</button>
+    </div>
+   
+</div>
+
+        
+    </form>
+</div>
+
+{%endblock%}

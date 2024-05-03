@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+
+
+{%block content%}
+
+<div class="container text-align-center">
+         
+    <h3 class="mensaje">{{ mensaje }}</h3>
+</div>
+<div class="container">
+
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">DNI</th>
+        <th scope="col">Cuit</th>
+        <th scope="col">Dirección</th>
+        <th scope="col">Email</th>
+        <th scope="col">telefono</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{proveedor.id}}</td>
+        <td>{{proveedor.nombre}}</td>
+        <td>{{proveedor.apellido}}</td>
+        <td>{{proveedor.dni}}</td>
+        <td>{{proveedor.cuit}}</td>
+        <td>{{proveedor.direccion}}</td>
+        <td>{{proveedor.email}}</td>
+        <td>{{proveedor.telefono}}</td>
+      </tr>
+      
+    </tbody>
+  </table>
+</div>
+{%endblock%}
+

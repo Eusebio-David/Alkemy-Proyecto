@@ -1,0 +1,39 @@
+{% extends "index.html" %}
+
+{%block content%}
+<div class="container text-align-center">
+         
+    <h3 class="mensaje">{{ mensaje }}</h3>
+</div>
+<div class="container">
+
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Categoría</th>
+        <th scope="col">Stock</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Fecha de alta</th>
+        <th scope="col">Fecha de modificacion</th>
+        <th scope="col">Proveedor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{producto.id}}</td>
+        <td>{{producto.nombre}}</td>
+        <td>{{producto.categoria}}</td>
+        <td>{{producto.stock_actual}}</td>
+        <td>{{producto.precio}}</td>
+        <td>{{producto.alta_del_producto}}</td>
+        <td>{{producto.fecha_de_modificacion}}</td>
+        <td>{{producto.proveedor}}</td>
+      </tr>
+      
+    </tbody>
+  </table>
+</div>
+{%endblock%}
