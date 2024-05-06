@@ -11,11 +11,11 @@ class Proveedor(models.Model):
 
     nombre = models.CharField(max_length=100, blank=False, null=False,help_text="Ingrese nombre")
     apellido = models.CharField(max_length=100,blank=False, null=False,help_text="Ingrese apellido")
-    dni  = models.CharField(max_length=8,blank=False, null=False, help_text="Ingrese DNI")
+    dni  = models.CharField(max_length=8,blank=False, null=False, help_text="Ingrese DNI", unique=True)
     telefono = models.CharField(
         validators=[phoneNumberRegex], max_length=16, unique=True,help_text="Ingrese numero de telefono"
     )
-    cuit = models.CharField(max_length=11, blank=False, null=False,help_text="Ingrese CUIT")
+    cuit = models.CharField(max_length=11, unique=True, blank=False, null=False,help_text="Ingrese CUIT")
     direccion = models.CharField(max_length=100, blank=False, null=False, help_text="Ingrese direccion")
     email = models.EmailField(max_length=200, blank=True, null=False,help_text="Ingrese un correo electronico")
 
