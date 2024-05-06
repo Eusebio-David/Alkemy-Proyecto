@@ -32,8 +32,8 @@
 <!-- Contenido para la página de inicio -->
 {% block  content %}
 
-<div class=" table-responsive container div-scroll col-10 mt-4 ">
-   
+<div class=" content  table-responsive container div-scroll col-10 mt-4 ">
+      <h3 class="text-center mb-4">Lista de productos</h3>
       {% if productos|length == 0 %}
       <div class="container ">
            
@@ -55,29 +55,34 @@
             
         </tr>
         </thead>
-        {%for producto in productos%}
+        
         
         <tbody>
+          {% for producto in productos %}
           <tr class="text-center">
+
             <td>{{producto.id}}</td>
             <td>{{producto.nombre}}</td>
             <td>{{producto.categoria}}</td>
             <td>{{producto.stock_actual}}</td>
             <td>{{producto.precio}}</td>
-            <td scope="col"><a href="{%url 'compra:modificar_producto' producto.id %}"><i class="bi bi-pencil"></i></a></td>
-            <td scope="col"><a href="#" onclick="eliminarProducto({{ producto.id }})"><i class="bi bi-trash"></i></a></td>
-            <td scope="col"><a href="{%url 'compra:detalle_producto' producto.id %}"><i class="bi bi-eye"></i></a></td>
+
+            <td ><a href="{% url 'compra:modificar_producto' producto.id %}"><i class="bi bi-pencil"></i></a></td>
+            <td ><a href="#" onclick="eliminarProducto({{ producto.id }})"><i class="bi bi-trash"></i></a></td>
+            <td ><a href="{% url 'compra:detalle_producto' producto.id %}"><i class="bi bi-eye"></i></a></td>
             
           </tr>
-          
+          {% endfor %}
         </tbody>
-        {%endfor%}
+       
       </table>
     
 
   </div>
+
+
   <!-- boton para guardar un producto -->
-  <div class="container">
+  <!--<div class="container div-boton-agregar">
     
   
     <div class=" fixed-bottom d-flex justify-content-end align-items-center p-5" style="height: 70vh;">
@@ -85,5 +90,8 @@
       <a class="icono-base" href="{%url 'compra:producto' %}"><i class="bi bi-database-fill-add" style="font-size: 4rem;"></i></a>
       
     </div>
-  </div>
+  </div>-->
+
+
+
 {% endblock%}

@@ -33,11 +33,23 @@
                 <a class="nav-link active" aria-current="page" href="{% url 'compra:index' %}">Inicio</a>
               </li>
               {% if user.is_authenticated %}
-              <li class="nav-item">
-                <a class="nav-link" href="{%url 'compra:listar_proveedores' %}">Proveedores</a>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Proveedores
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="{% url 'compra:proveedor' %}">Agregar Proveedor</a></li>
+                  <li><a class="dropdown-item" href="{% url 'compra:listar_proveedores' %}">Listar Proveedores</a></li>
+                </ul>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{%url 'compra:lista_productos' %}">Productos</a>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Productos
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="{%url 'compra:producto' %}">Agregar Producto</a></li>
+                  <li><a class="dropdown-item" href="{%url 'compra:lista_productos' %}">Listar Productos</a></li>
+                </ul>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{%url 'compra:logout' %}">Cerrar Sesión</a>

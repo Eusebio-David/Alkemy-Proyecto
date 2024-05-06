@@ -39,7 +39,7 @@ def crearProveedor(request):
 def listar_proveedor(request):
     provedores = Proveedor.objects.all()
     mensaje = "No hay proveedores disponibles en este momento.\n" + \
-              "Necesitas crear nuevos proveedores. Haz click en el icono de la pantalla para comenzar a cargar tus proveedores."
+              "Necesitas crear nuevos proveedores."
     if not provedores:
         return render(request, 'proveedor/listar_proveedores.html',{'mensaje':mensaje})
     
@@ -109,7 +109,7 @@ def crear_producto(request):
 def listar_productos(request,):
     productos = Producto.objects.all()
     mensaje = "No hay productos disponibles en este momento.\n" + \
-              "Necesitas crear nuevos productos. Haz click en el icono de la pantalla para comenzar a cargar productos."
+              "Necesitas crear nuevos productos."
     if not productos:
         return render(request,'producto/lista_products.html',{'mensaje':mensaje})
     return render(request, 'producto/lista_products.html', {
